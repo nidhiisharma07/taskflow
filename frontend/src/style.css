@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🌞 LIGHT + 🌙 DARK MODE */
+body {
+  @apply bg-gradient-to-br from-indigo-50 via-blue-50 to-slate-100 text-slate-900
+         dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 dark:text-white;
+}
+
+/* Smooth UI (safe) */
+* {
+  @apply transition-colors duration-200;
+}
+
+/* 🔥 Skeleton shimmer */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  display: block;
+  background: linear-gradient(
+    90deg,
+    #e5e7eb 25%,
+    #f3f4f6 50%,
+    #e5e7eb 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite linear;
+  border-radius: 6px;
+}
+
+.dark .skeleton {
+  background: linear-gradient(
+    90deg,
+    #374151 25%,
+    #4b5563 50%,
+    #374151 75%
+  );
+}
+
+/* 🔥 YouTube-style top loading bar (NProgress) */
+#nprogress .bar {
+  background: linear-gradient(
+    90deg,
+    #6366f1,
+    #8b5cf6,
+    #6366f1
+  ) !important;
+  height: 3px;
+  z-index: 9999;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #6366f1, 0 0 5px #8b5cf6;
+}
+
+#nprogress .spinner {
+  display: none !important;
+}
